@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:repo_test/second.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -32,6 +34,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        "/second": (context) => SecondPage()
+      },
     );
   }
 }
@@ -112,6 +117,9 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            ElevatedButton(onPressed: (){
+              Navigator.pushNamed(context, "/second");
+            }, child: Text('Proceed to next page'))
           ],
         ),
       ),
